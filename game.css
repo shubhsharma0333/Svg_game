@@ -21,6 +21,7 @@ body {
 }
 canvas {
 	display: block;
+	
 	margin: auto;
 }
 button {
