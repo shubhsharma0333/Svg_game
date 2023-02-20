@@ -32,7 +32,7 @@ This part contains all global variables.
     LARGE_R = 2 * SMALL_R, //typical radius of items (but may vary)
     PANEL_HEIGHT = GRID, //height of panel in pixels
     WIDTH = 7,
-    HEIGHT = 14, //width and height of total area in GRID units
+    HEIGHT = 17, //width and height of total area in GRID units
     INNER_WIDTH = WIDTH * GRID - 2 * SMALL_R, //width and height of inner area (i.e. where
     INNER_HEIGHT = HEIGHT * GRID - 2 * SMALL_R, //center of small balls can go) in pixels
     TOTAL_WIDTH = INNER_WIDTH + 2 * SMALL_R, //total width and height of canvas in pixels
@@ -285,7 +285,7 @@ that doesn't use the canvas.
       button.removeEventListener("click", clickHander);
       callback();
     }
-
+	console.log(getPersistent("intro") || 0)
     if (!force && (getPersistent("intro") || 0) > i) {
       callback();
       return;
@@ -310,8 +310,8 @@ that doesn't use the canvas.
       "<h1>The Martians are Back!</h1>" + formatHtml(introTxt),
       "Start",
       callback,
-      0,
-      
+      -1,
+      force
     );
   }
 
@@ -457,7 +457,7 @@ that doesn't use the canvas.
       } else if (type) {
         menu.removeEventListener("click", clickHander);
         if (type === "intro") {
-        //   showFirstIntro(initMenu, true);
+          showFirstIntro(initMenu, true);
         } else if (type === "outro") {
           showOutro(initMenu, intro, true);
         } else {
